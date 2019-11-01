@@ -6,6 +6,7 @@ body {
   font-family: 'Fira Code', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #E5E5E5;
 }
 
 main {
@@ -16,14 +17,70 @@ main {
   margin: 0 auto;
 }
 
-main header {
+.main--header {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 18px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-main header h2 {
+.main--header h2 {
   font-weight: bold;
   font-size: 16px;
+}
+
+.story {
+  padding: 24px 32px 16px 24px;
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+.story--user--ava {
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  margin-right: 16px;
+}
+
+.story--body--header {
+  display: flex;
+  align-items: center;
+}
+.story--body--header * {
+  margin-right: 16px;
+}
+.story--body--header h3{
+  font-weight: bold;
+  font-size: 20px;
+}
+.story--body--header a, 
+.story--body--header span {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.story--body--header a {
+  text-decoration: none;
+}
+
+.story--body p {
+  font-size: 16px;
+  line-height: 24px;
+  padding-top: 8px;
+}
+
+.story--body--actions {
+  display: flex;
+  width: 332px;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+.story--body--actions li {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.story--body--actions--item {
+  position: absolute;
+  left: 28px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.35);
 }
