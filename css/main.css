@@ -13,7 +13,7 @@ body {
 
 
 
-nav {
+.nav__index {
   position: fixed;
   left: calc((100vw - 600px) / 2);
   transform: translateX(-100%);
@@ -28,6 +28,8 @@ nav {
   cursor: pointer;
   padding: 16px 32px 16px 16px;
   border-radius: 50px;
+  color: black;
+  text-decoration: none;
 }
 
 .nav__icon {
@@ -78,7 +80,9 @@ nav {
 
 
 
-main {
+
+
+.main {
   width: 600px;
   height: 100vh;
   min-height: 100vh;
@@ -91,8 +95,13 @@ main {
 .main__header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.main__header span {
+  line-height: 18px;
 }
 
 .main__header h2 {
@@ -112,7 +121,9 @@ main {
   height: 56px;
   margin-right: 16px;
 }
-
+.story__body {
+  flex: 1;
+}
 .story__body__header {
   display: flex;
   align-items: center;
@@ -122,7 +133,7 @@ main {
 }
 .story__body__header h3{
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
 }
 .story__body__header a, 
 .story__body__header span {
@@ -209,4 +220,39 @@ aside {
 .aside__more a {
   color: #0038FF;
   text-decoration: none;
+}
+
+
+
+
+.chat--body {
+  width: 1208px;
+  margin: 0 auto;
+}
+.chat--body nav {
+  position: fixed;
+  padding-top: 24px;
+}
+.content {
+  display: flex;
+  justify-content: flex-end;
+  /* width: 960px; */
+  height: 100vh;
+  min-height: 100vh;
+}
+.dialogs, .messages {
+  width: 480px;
+  border-left: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.chat--body .story {
+  padding: 16px;
+}
+
+.chat--body .story__body__header span{
+  margin: 0 0 0 auto;
+}
+
+.messages {
+  border-right: 1px solid rgba(0, 0, 0, 0.25);
 }
