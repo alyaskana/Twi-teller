@@ -248,6 +248,7 @@ aside {
 
 .chat--body .story {
   padding: 16px;
+  align-items: center;
 }
 .chat--body .story__user__ava {
   border-radius: 50%;
