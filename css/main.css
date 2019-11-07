@@ -6,7 +6,7 @@ body {
   font-family: 'Fira Code', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #E5E5E5;
+  background-color: #FDFFF8;
 }
 
 
@@ -114,6 +114,10 @@ body {
   padding: 24px 32px 16px 24px;
   display: flex;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+.active__story {
+  border-right: 3px solid #0038FF;
+  background: #F2F3ED;
 }
 .story__user__ava {
   border-radius: 50%;
@@ -264,6 +268,75 @@ aside {
   margin: 0 0 0 auto;
 }
 
+
+
 .messages {
   border-right: 1px solid rgba(0, 0, 0, 0.25);
 }
+.messages__items {
+  height: calc(100vh - 57px - 57px);
+  width: 100%;
+  overflow: scroll;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: flex-end;
+}
+
+.message {
+  margin-bottom: 24px;
+}
+.message__text {
+  font-size: 16px;
+  line-height: 24px;
+  padding: 16px;
+  width: 317px;
+}
+.sended .message__text {
+  color: white;
+  background-color: #0038FF;
+  border-radius: 24px 24px 0px 24px;
+}
+.received .message__text {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 24px 24px 24px 0px;  
+}
+.message__date {
+  font-size: 12px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.sended .message__date {
+  text-align: right;
+}
+
+.received {
+  display: flex;
+  align-items: flex-end;
+}
+.received img {
+  width: 32px;
+  height: 32px;
+  padding: 0 8px 18px 0;
+}
+.sended {
+  align-self: flex-end;
+}
+
+
+.typeplace {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 18px 16px 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  background-color: #E5E5E5;
+}
+.typeplace p {
+  width: 385px;
+  color: rgba(0, 0, 0, 0.25);
+  font-size: 16px;
+  line-height: 24px;
+}
+
