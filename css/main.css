@@ -1,6 +1,6 @@
 @import "reset.css";
 
-@import url('https://fonts.googleapis.com/css?family=Fira+Code:400,700&display=swap&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Fira+Code:400,500,700&display=swap&subset=cyrillic');
 
 body {
   font-family: 'Fira Code', monospace;
@@ -9,24 +9,96 @@ body {
   background-color: #E5E5E5;
 }
 
+
+
+
+
+nav {
+  position: fixed;
+  left: calc((100vw - 600px) / 2);
+  transform: translateX(-100%);
+  padding: 24px 32px 0 0;
+}
+
+.nav__menu li a{
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 16px 32px 16px 16px;
+  border-radius: 50px;
+}
+
+.nav__icon {
+  width: 28px;
+  height: 28px;
+  background-color: black;
+  margin-right: 16px;
+}
+
+.nav__menu li:hover a, .nav__menu__active a{
+  color: #0038FF;
+  background: rgba(0, 0, 0, 0.05);
+}
+.nav__menu li:hover .nav__icon, .nav__menu__active .nav__icon {
+  background-color: #0038FF;
+}
+.nav__icon--home {
+  mask: url(../img/home-icn.svg);
+  -webkit-mask: url(../img/home-icn.svg);
+}
+.nav__icon--bell {
+  mask: url(../img/bell-icn.svg);
+  -webkit-mask: url(../img/bell-icn.svg);
+}
+.nav__icon--chat {
+  mask: url(../img/chat-icn.svg);
+  -webkit-mask: url(../img/chat-icn.svg);
+}
+.nav__icon--bookmark {
+  mask: url(../img/bookmark-icn.svg);
+  -webkit-mask: url(../img/bookmark-icn.svg);
+}
+
+.nav__btn {
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  background-color: #0038FF;
+  padding: 16px 55px;
+  margin-top: 32px;
+  display: block;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.25);
+}
+.nav__btn:hover {
+  filter: brightness(1.25);
+}
+
+
+
 main {
   width: 600px;
   height: 100vh;
+  min-height: 100vh;
   border-right: 1px solid rgba(0, 0, 0, 0.25);
   border-left: 1px solid rgba(0, 0, 0, 0.25);
   margin: 0 auto;
+  padding-bottom: 20vh;
 }
 
-.main--header {
+.main__header {
   display: flex;
   justify-content: space-between;
-  padding: 18px;
+  padding: 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-.main--header h2 {
+.main__header h2 {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
+  line-height: 24px;
 }
 
 .story {
@@ -34,53 +106,107 @@ main {
   display: flex;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 }
-.story--user--ava {
+.story__user__ava {
   border-radius: 50%;
   width: 56px;
   height: 56px;
   margin-right: 16px;
 }
 
-.story--body--header {
+.story__body__header {
   display: flex;
   align-items: center;
 }
-.story--body--header * {
+.story__body__header * {
   margin-right: 16px;
 }
-.story--body--header h3{
+.story__body__header h3{
   font-weight: bold;
   font-size: 20px;
 }
-.story--body--header a, 
-.story--body--header span {
+.story__body__header a, 
+.story__body__header span {
   font-size: 14px;
   color: rgba(0, 0, 0, 0.5);
 }
-.story--body--header a {
+.story__body__header a {
   text-decoration: none;
 }
 
-.story--body p {
+.story__body p {
   font-size: 16px;
   line-height: 24px;
   padding-top: 8px;
 }
 
-.story--body--actions {
+.story__body__actions {
   display: flex;
   width: 332px;
   justify-content: space-between;
   margin-top: 16px;
 }
-.story--body--actions li {
+.story__body__actions li {
   position: relative;
   display: flex;
   align-items: center;
 }
-.story--body--actions--item {
+.story__body__actions li:hover {
+  cursor: pointer;
+  filter: brightness(0.05);
+}
+.story__body__actions__item {
   position: absolute;
   left: 28px;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.35);
+}
+
+
+
+aside {
+  position: fixed;
+  left: calc((100vw + 600px) / 2);
+  width: 320px;
+  margin: 15px 0 0 32px;
+  background: rgba(25, 25, 25, 0.05);
+  border-radius: 12px;
+}
+
+.aside__header {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 24px;
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 8px 16px;
+}
+.user img {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+}
+.user__info__name {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+}
+.user__info__nick {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  line-height: 18px;
+}
+
+.aside__more {
+  padding: 11px 16px;
+}
+.aside__more a {
+  color: #0038FF;
+  text-decoration: none;
 }
