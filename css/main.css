@@ -2,6 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Fira+Code:400,500,700&display=swap&subset=cyrillic');
 
+
 body {
   font-family: 'Fira Code', monospace;
   -webkit-font-smoothing: antialiased;
@@ -9,16 +10,30 @@ body {
   background-color: #FDFFF8;
 }
 
+:root { 
+  --nav-width: 216px;
+}
+.wrapper {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto;
+}
+.nav__wrapper {
+  width: var(--nav-width);
+  padding: 24px 32px 0 0;
+}
+.aside__wrapper {
+  width: 320px;
+  padding: 15px 0 0 32px;
+}
 
+/* ===================================== NAVIGATION ==================================== */
 
 .nav__index {
   position: fixed;
-  left: calc((100vw - 600px) / 2);
-  transform: translateX(-100%);
-  padding: 24px 32px 0 0;
 }
 
-.nav__menu li a{
+.nav__menu li a {
   display: inline-flex;
   align-items: center;
   font-weight: bold;
@@ -35,14 +50,6 @@ body {
   height: 28px;
   background-color: black;
   margin-right: 16px;
-}
-
-.nav__menu li:hover a, .nav__menu__active a{
-  color: #0038FF;
-  background: rgba(0, 0, 0, 0.05);
-}
-.nav__menu li:hover .nav__icon, .nav__menu__active .nav__icon {
-  background-color: #0038FF;
 }
 .nav__icon--home {
   mask: url(../img/home-icn.svg);
@@ -61,6 +68,16 @@ body {
   -webkit-mask: url(../img/bookmark-icn.svg);
 }
 
+.nav__menu li:hover a, 
+.nav__menu__active a {
+  color: #0038FF;
+  background: rgba(0, 0, 0, 0.05);
+}
+.nav__menu li:hover .nav__icon, 
+.nav__menu__active .nav__icon {
+  background-color: #0038FF;
+}
+
 .nav__btn {
   font-size: 16px;
   font-weight: bold;
@@ -69,24 +86,20 @@ body {
   background-color: #0038FF;
   padding: 16px 55px;
   margin-top: 32px;
-  display: block;
+  display: inline-block;
   box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.25);
 }
 .nav__btn:hover {
   filter: brightness(1.25);
 }
 
-
-
-
+/* ===================================== MAIN ==================================== */
 
 .main {
   width: 600px;
-  height: 100vh;
-  min-height: 100vh;
   border-right: 1px solid rgba(0, 0, 0, 0.25);
   border-left: 1px solid rgba(0, 0, 0, 0.25);
-  margin: 0 auto;
+  box-sizing: border-box;
   padding-bottom: 20vh;
 }
 
@@ -97,11 +110,9 @@ body {
   padding: 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 }
-
 .main__header span {
   line-height: 18px;
 }
-
 .main__header h2 {
   font-weight: bold;
   font-size: 20px;
@@ -113,19 +124,17 @@ body {
   display: flex;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 }
-.active__story {
-  border-right: 3px solid #0038FF;
-  background: #F2F3ED;
+.story__body {
+  flex: 1;
 }
+
 .story__user__ava {
   border-radius: 50%;
   width: 56px;
   height: 56px;
   margin-right: 16px;
 }
-.story__body {
-  flex: 1;
-}
+
 .story__body__header {
   display: flex;
   align-items: center;
@@ -175,13 +184,13 @@ body {
   color: rgba(0, 0, 0, 0.35);
 }
 
-
+/* ===================================== ASIDE ==================================== */
 
 aside {
   position: fixed;
-  left: calc((100vw + 600px) / 2);
+  /* left: calc((100vw + 600px) / 2); */
   width: 320px;
-  margin: 15px 0 0 32px;
+  /* margin: 15px 0 0 32px; */
   background: rgba(25, 25, 25, 0.05);
   border-radius: 12px;
 }
@@ -225,52 +234,53 @@ aside {
   text-decoration: none;
 }
 
+/* =============================== CHAT ======================================*/
 
-
-
-.chat--body {
-  width: 1208px;
-  margin: 0 auto;
-}
-.chat--body nav {
+.chat nav {
   position: fixed;
-  padding-top: 24px;
 }
 .content {
   display: flex;
   justify-content: flex-end;
-  /* width: 960px; */
   height: 100vh;
   min-height: 100vh;
 }
-.dialogs, .messages {
+.dialogs, 
+.messages {
   width: 480px;
   border-left: 1px solid rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+}
+.messages {
+  border-right: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-.chat--body .story {
+/* ===================================== CHAT STORY ==================================== */
+
+.chat .story {
   padding: 16px;
   align-items: center;
 }
-.chat--body .story__user__ava {
+.chat .story__user__ava {
   border-radius: 50%;
   width: 48px;
   height: 48px;
   margin-right: 16px;
 }
-.chat--body .story__body p {
+.chat .story__body p {
   padding: 0;
   line-height: 24px;
 }
-.chat--body .story__body__header span {
+.chat .story__body__header span {
   margin: 0 0 0 auto;
 }
-
-
-
-.messages {
-  border-right: 1px solid rgba(0, 0, 0, 0.25);
+.chat .active__story {
+  border-right: 3px solid #0038FF;
+  background: #F2F3ED;
 }
+
+/* ===================================== CHAT MESSAGES ==================================== */
+
 .messages__items {
   height: calc(100vh - 57px - 57px);
   width: 100%;
@@ -291,19 +301,19 @@ aside {
   padding: 16px;
   width: 317px;
 }
-.sended .message__text {
-  color: white;
-  background-color: #0038FF;
-  border-radius: 24px 24px 0px 24px;
-}
-.received .message__text {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 24px 24px 24px 0px;  
-}
 .message__date {
   font-size: 12px;
   line-height: 16px;
   color: rgba(0, 0, 0, 0.5);
+}
+
+.sended {
+  align-self: flex-end;
+}
+.sended .message__text {
+  color: white;
+  background-color: #0038FF;
+  border-radius: 24px 24px 0px 24px;
 }
 .sended .message__date {
   text-align: right;
@@ -318,10 +328,12 @@ aside {
   height: 32px;
   padding: 0 8px 18px 0;
 }
-.sended {
-  align-self: flex-end;
+.received .message__text {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 24px 24px 24px 0px;  
 }
 
+/* ===================================== TYPEPLACE ==================================== */
 
 .typeplace {
   display: flex;
@@ -338,3 +350,57 @@ aside {
   line-height: 24px;
 }
 
+/* ===================================== ADAPTIVE ==================================== */
+
+@media (max-width: 1200px) {
+  :root { 
+    --nav-width: 32px;
+  }
+  .nav__wrapper {
+    padding: 0 16px 0 0;
+  }
+  .aside__wrapper {
+    padding: 15px 0 0 16px;
+  }
+  .nav__menu li a {
+    padding: 16px 0;
+  }
+  .nav__menu__text {
+    display: none;
+  }
+  .nav__btn {
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav__btn__icn {
+    background-image: url(../img/icons8-pencil\ 1.svg);
+    width: 20px;
+    height: 20px;
+  }
+  .nav__btn__text {
+    display: none;
+  }
+  .nav__menu__active a{
+    background: none;
+  }
+  .body__index {
+    margin: 0;
+  }
+  .nav__menu li:hover a {
+  background: transparent;
+  }
+}
+@media (max-width: 1024px) {
+  .aside__wrapper,
+  .dialogs {
+    display: none;
+  }
+  .nav__wrapper {
+    padding: 0 24px 0 0;
+  }
+}
